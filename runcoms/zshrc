@@ -10,4 +10,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# wal
+(cat ~/.cache/wal/sequences &)
+
+# Aliases
+
+# NeoVim
+alias vi='nvim'
+alias vim='nvim'
+alias v='nvim'
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
