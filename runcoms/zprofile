@@ -27,7 +27,7 @@ export GOPATH=$HOME/go
 #
 # Rust
 #
-export RUSTPATH=$HOME/.cargo
+export RUSTPATH=$HOME/.cargo/bin
 
 #
 # Language
@@ -49,12 +49,16 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+for d in ~/.bin/*; do
+	export PATH="$PATH:$d"
+done
+
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
   /snap/bin
   $HOME/.local/bin
-  $HOME/.npm-packages/bin 
+  $HOME/.npm/bin 
   /usr/local/go/bin
   $GOPATH/bin
   $RUSTPATH/bin

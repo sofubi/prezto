@@ -15,11 +15,52 @@ fi
 
 # Aliases
 
+hoops () {
+	converter --input $1 --output_scs $HOME/Work/makeros-v2/public/models/$2 --license_file $HOME/Work/HOOPS_LICENSE.txt
+}
+
 # NeoVim
 alias vi='nvim'
 alias vim='nvim'
 alias v='nvim'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+
+# mullvad
+alias mvc='mullvad connect'
+alias mvd='mullvad disconnect'
+alias mvs='mullvad status'
+
+# laradock
+alias v2up='(cd $HOME/Work/makeros-v2/laradock && docker-compose up -d mysql nginx phpmyadmin)'
+v2ex () {
+	if [[ ! $(pwd) == $HOME/Work/makeros-v2/laradock ]]; then
+		cd $HOME/Work/makeros-v2/laradock
+	fi
+	docker-compose exec --user='laradock' workspace /bin/bash
+}
+v2down () {
+	if [[ ! $(pwd) == $HOME/Work/makeros-v2/laradock ]]; then
+		cd $HOME/Work/makeros-v2/laradock
+	fi
+	docker-compose down
+}
+
+# Programs
+alias ldock='lazydocker'
+alias music='ncmpcpp'
+alias bm='bashmount'
+alias pm='pulsemixer'
+alias nf='neofetch'
+
+# git
+alias ga='git add .'
+alias gs='git status'
+alias gch='git checkout $1'
+alias gchb='git checkout -b $1'
+alias gchm='git checkout master'
+alias gps='git push'
+alias gpl='git pull'
+alias gc='git commit -m $1'
 
 # set XDG_RUNTIME_DIR if not already set.
 if test -z "${XDG_RUNTIME_DIR}"; then
